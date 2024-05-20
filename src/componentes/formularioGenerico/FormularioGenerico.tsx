@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import InputRenderer from './InputRenderer';
 import useFormHandlers from './useFormHandlers';
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Button } from "@mui/material";
 import { Add } from "@mui/icons-material";
   type FormProps<T extends object> = {
       data: T,
@@ -38,7 +38,7 @@ import { Add } from "@mui/icons-material";
             )
           )}
         </div>
-        <Button
+        <Button type='submit'
             sx={{
               bgcolor: "#a6c732",
               "&:hover": {

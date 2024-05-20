@@ -3,8 +3,8 @@ import AppRouter from "../src/routes/AppRouter";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <AppRouter></AppRouter>
+    <div  >
+      <AppRouter  ></AppRouter>
     </div>
   );
 };

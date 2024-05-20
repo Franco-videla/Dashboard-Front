@@ -1,5 +1,5 @@
 import { Box, Grid, Container, Typography } from "@mui/material";
-import InicioCard from "../common/InicioCard";
+import InicioCard from "../../componentes/common/InicioCard";
 import ChartCard from "./ChartCard";
 import BasePie from "./BasePie";
 //import BaseBar from "./BaseBar";
@@ -7,9 +7,9 @@ import AllBar from "./AllBar";
 import * as React from 'react';
 
 // Contenido para las tarjetas de inicio
-const productosContent = {
+const ProductoContent = {
     url: './logo/comida.png',
-    title: 'Productos',
+    title: 'Manufacturados',
     content: 'Añade nuevos platos o actualiza los precios para mejorar la experiencia de tus clientes.',
 };
 
@@ -42,7 +42,7 @@ const Inicio: React.FC = () => {
                 <Grid container spacing={3} sx={{ alignContent: 'center', justifyContent: 'center' }}>
                     <Grid item xs={12} md={4}>
                         <Box sx={cardStyle}>
-                            <InicioCard content={productosContent} />
+                            <InicioCard content={ProductoContent} />
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={4}>

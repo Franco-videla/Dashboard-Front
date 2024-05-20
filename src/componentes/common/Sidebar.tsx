@@ -33,7 +33,7 @@ const Sidebar: React.FC = () => {
                         <CNavItem>
                             <Link to="/empresas" className="nav-link">
                                 <span className="nav-icon"><span className="nav-icon-bullet"></span></span>
-                                Empresa
+                                Empresas
                             </Link>
                         </CNavItem>
                         <CNavItem>
