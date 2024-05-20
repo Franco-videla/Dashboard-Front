@@ -7,7 +7,7 @@ import ModalGenerico from "../modalGenerico/ModalGenerico";
 import CardGenericaCard from "./CardGenericaCard";
 import useGrillaHandlers from "../grillaGenerica/useGrillaHandler";
 import { Add } from "@mui/icons-material";
-import { Box,Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 type ListArgs<T extends Base> = {
   entidadPrevia: T,
   entidadBase: T,
@@ -48,7 +48,7 @@ function CardGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServicio,
   }, [entidadBase]);
 
   return (
-  
+
     <>
       <ModalGenerico titulo={(entidadBase as any).constructor.name} tituloModal={(entidadBase as any).constructor.nombre} ref={modalRef}>
         <FormularioGenerico data={entidad} onSubmit={save} listaSelects={listaSelects} />
@@ -68,30 +68,27 @@ function CardGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServicio,
           deleteEntidad={deleteEntidad}
           sinEditar={sinEditar}
         />
-
         {!sinNuevo && (
-          
-            <Button
-              onClick={() => handleOpenModal(0)}
-              sx={{
-                bgcolor: "#a6c732",
-                "&:hover": {
-                  bgcolor: "#a0b750",
+          <Button
+            onClick={() => handleOpenModal(0)}
+            sx={{
+              bgcolor: "#a6c732",
+              "&:hover": {
+                bgcolor: "#a0b750",
 
-                },
-                my: 3,
-                mx: 1
-              }}
-              variant="contained"
-              startIcon={<Add />}
-            >
-              Nuevo
-            </Button>
-          
+              },
+              my: 3,
+              mx: 1
+            }}
+            variant="contained"
+            startIcon={<Add />}
+          >
+            Nuevo
+          </Button>
+
         )}
       </div>
     </>
-
   );
 }
 
