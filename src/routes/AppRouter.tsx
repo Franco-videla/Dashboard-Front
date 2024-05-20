@@ -8,15 +8,14 @@ import Empleado from "../screens/empleados/Empleados";
 import Clientes from "../screens/clientes/Clientes";
 import Promocion from "../screens/promociones/Promociones";
 import Sucursales from "../screens/sucursales/Sucursales";
-
 import Navbar from "../screens/common/NavBar";
 import Sidebar from "../screens/common/Sidebar";
 
 const AppRouter: React.FC = () => {
   return (
     <Router>
-      <div style={{ width: "100%" }}>
-        <Navbar />
+      <div style={{ width: "2537px" }}>
+      <Navbar />
       </div>
       <div className="d-flex">
         <Sidebar />
@@ -29,7 +28,7 @@ const AppRouter: React.FC = () => {
           <Route path="/empleados" element={<Empleado />} />
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/promociones" element={<Promocion />} />
-          <Route path="/sucursales/:empresaId" element={<Sucursales />} />
+          <Route path="/sucursales" element={<Sucursales />} />
         </Routes>
       </div>
     </Router>
