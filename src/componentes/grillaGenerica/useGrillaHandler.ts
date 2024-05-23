@@ -1,8 +1,7 @@
-import { ChangeEvent, useCallback } from 'react';
-
+import { ChangeEvent, useCallback, RefObject } from 'react';
 import BackendClient from "../../servicios/BackendClient";
-import { RefObject } from "react";
 import Base from '../../entidades/Base';
+import ArticuloInsumo from '../../entidades/ArticuloInsumo';
 
 export type UseGrillaHandlersProps<T> = {
   entidad: T,
@@ -27,6 +26,45 @@ function useGrillaHandlers<T extends Base>({
   entidadBase,
   modalRef
 }: UseGrillaHandlersProps<T>) {
+
+  const cleanArticuloInsumo = (articuloInsumo: ArticuloInsumo): any => {
+    const { type, ...cleanedArticuloInsumo } = articuloInsumo;
+    return cleanedArticuloInsumo;
+  };
+
+  const cleanArticuloManufacturadoDetalles = (detalles: any[]): any[] => {
+    return detalles.map(detalle => {
+      if (detalle.articuloInsumo) {
+        detalle.articuloInsumo = cleanArticuloInsumo(detalle.articuloInsumo);
+      }
+      return detalle;
+    });
+  };
+
+  const cleanData = (data: any): any => {
+    // Crear una copia profunda del objeto
+    const cleanedData = JSON.parse(JSON.stringify(data));
+  
+    // Asegurarse de que la propiedad type está presente
+    if (cleanedData.articuloManufacturadoDetalles) {
+      cleanedData.articuloManufacturadoDetalles = cleanedData.articuloManufacturadoDetalles.map((detalle: any) => {
+        if (detalle.articuloInsumo) {
+          detalle.articuloInsumo.type = 'insumo';
+        }
+        return detalle;
+      });
+    }
+  
+    // Establecer el tipo para el objeto principal si es un ArticuloManufacturado
+    if (cleanedData.articuloManufacturadoDetalles) {
+      cleanedData.type = 'manufacturado';
+    } else {
+      cleanedData.type = 'insumo';
+    }
+  
+    return cleanedData;
+  };
+
   const getDatosRest = useCallback(async () => {
     const datos: T[] = await apiServicio.getAll();
     setEntidades(datos);
@@ -42,18 +80,19 @@ function useGrillaHandlers<T extends Base>({
   }, [apiServicio, (entidad as any).constructor.name, getDatosRest]);
 
   const save = useCallback(async (formData: T) => {
-    
-    if (formData.id === 0) {
-      await apiServicio.post(formData);
+    const cleanedFormData = cleanData(formData);
+
+    if (cleanedFormData.id === 0) {
+      await apiServicio.post(cleanedFormData);
     } else {
-      await apiServicio.put(formData.id, formData);
+      await apiServicio.put(cleanedFormData.id, cleanedFormData);
     }
     getDatosRest();
     const modalClose: HTMLElement | null = document.getElementById(`btn-close-${(entidad as any).constructor.name}`);
     modalClose?.click();
   }, [apiServicio, (entidad as any).constructor.name, getDatosRest]);
 
-  const cambiarBooleano = useCallback(async (value: number, atributo:string) => {
+  const cambiarBooleano = useCallback(async (value: number, atributo: string) => {
     const nuevo: T = entidades.find((entidad: T) => entidad.id === value)!;
     (nuevo as any)[atributo] = !(nuevo as any)[atributo];
     if (atributo === 'esParaElaborar') {
@@ -93,3 +132,4 @@ function useGrillaHandlers<T extends Base>({
 }
 
 export default useGrillaHandlers;
+
