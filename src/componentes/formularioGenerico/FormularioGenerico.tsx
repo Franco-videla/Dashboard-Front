@@ -30,7 +30,7 @@ function FormularioGenerico<T extends object>({ data, listaSelects = {}, onSubmi
   };
 
   return (
-    <div style={{ backgroundColor: '#eaf1d5' }} >
+    <div style={{ backgroundColor: '#f1f5e4' }} >
       <form onSubmit={handleSubmit} className='container' >
         <div className='row'  >
           {keys.map((atributo, indice) =>
