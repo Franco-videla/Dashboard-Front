@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Base from "../../entidades/Base";
 import FormularioGenerico from "../formularioGenerico/FormularioGenerico";
 import BackendClient from "../../servicios/BackendClient";
@@ -8,6 +8,7 @@ import CardGenericaCard from "./CardGenericaCard";
 import useGrillaHandlers from "../grillaGenerica/useGrillaHandler";
 import { Add } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
+
 type ListArgs<T extends Base> = {
   entidadPrevia: T,
   entidadBase: T,
@@ -48,7 +49,6 @@ function CardGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServicio,
   }, [entidadBase]);
 
   return (
-
     <>
       <ModalGenerico titulo={(entidadBase as any).constructor.name} tituloModal={(entidadBase as any).constructor.nombre} ref={modalRef}>
         <FormularioGenerico data={entidad} onSubmit={save} listaSelects={listaSelects} />
@@ -57,7 +57,6 @@ function CardGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServicio,
       {modalPedidos}
 
       <div style={{ height: '89vh', display: 'flex', flexDirection: 'column' }}>
-
         <CardGenericaCard
           entidades={entidades}
           labels={labels}
@@ -75,7 +74,6 @@ function CardGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServicio,
               bgcolor: "#a6c732",
               "&:hover": {
                 bgcolor: "#a0b750",
-
               },
               my: 3,
               mx: 1
@@ -85,7 +83,6 @@ function CardGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServicio,
           >
             Nuevo
           </Button>
-
         )}
       </div>
     </>
