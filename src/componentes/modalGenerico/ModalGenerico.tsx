@@ -25,11 +25,11 @@ const ModalGenerico = forwardRef(({ tituloModal, titulo, children }: ModalArgs, 
     return (
         <>
             {showModal && (
-                <div className="modal modal-xl fade show" style={{ display: "block" }} tabIndex={-1}>
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{children.props.data && (children.props.data.id ? 'Modificar' : 'Crear')} {tituloModal}</h5>
+                <div className="modal modal-xl fade show" style={{ display: "block"}} tabIndex={-1}>
+                    <div className="modal-dialog" >
+                        <div className="modal-content"style={{backgroundColor:'#eaf1d5'}}  >
+                            <div className="modal-header" style={{backgroundColor:'#a6c732'}}>
+                                <h2 className="modal-title">{children.props.data && (children.props.data.id ? 'Modificar' : 'Crear')} {tituloModal}</h2>
                                 <button  type="button" id={"btn-close-" + titulo} className="btn-close" aria-label="Close" onClick={closeModal}></button>
                             </div>
 

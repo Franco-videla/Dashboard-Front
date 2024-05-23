@@ -37,7 +37,7 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
         return <Domicilios editar domiciliosPrevios={(data as Empleado).domicilios} handleChange={handleChange} />
       case 'preparacion':
         return (
-          <textarea
+          <textarea  
               id={String(atributo)}
               className='form-control'
               rows={3}
@@ -52,15 +52,15 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
       {
         return (
           <>
-          <div className='d-flex'>
-            <select
+         
+            <select  style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                 id= {String(atributo)}
                 className= 'form-select'
                 value= {value ? ((typeof value === 'string' ? value : (value as { id:any }).id)) : '0'}
                 onChange= {(e) => handleChange(atributo, e.target)}
                 required
               >
-              <option disabled value={0}>Seleccionar</option>
+              <option disabled value={0} >Seleccionar </option>
               {listaSelects[atributo][0].map((dato: any) => (
                 <option  key={dato.id} value={dato.id}>{dato.denominacion||dato.nombre}</option>
               ))}
@@ -69,7 +69,7 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
             {listaSelects[atributo].length > 1 && 
               listaSelects[atributo][1]
             }
-          </div>
+         
           {errors[atributo] && <div className='ms-1 mt-1 text-danger'>{errors[atributo]}</div>}
           </>
         );
@@ -77,7 +77,7 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
       else if (atributo.toString().includes('fecha')) 
       {
         return (
-          <input
+          <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
               type='date'
               id={String(atributo)}
               className='form-control'
@@ -90,7 +90,7 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
       else if (atributo.toString().includes('hora')) 
       {
         return (
-          <input
+          <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
               type='time'
               id={String(atributo)}
               className='form-control'
@@ -102,7 +102,7 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
       }
       else if (atributo === 'rol') {
         return (
-          <input
+          <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
               type='text'
               id={String(atributo)}
               className='form-control'
@@ -113,7 +113,7 @@ function InputRenderer<T>({ atributo, value, listaSelects, data, handleChange, e
       }
       else {
         return (
-          <input
+          <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
               type={typeof data[atributo] === 'number' ? 'number' : 'text'}
               id={String(atributo)}
               className='form-control'

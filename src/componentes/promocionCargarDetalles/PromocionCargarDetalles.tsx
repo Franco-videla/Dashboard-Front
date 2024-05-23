@@ -77,13 +77,13 @@ function PromocionCargarDetalles({ detallesPrevios, handleChange }: DetallesProm
     return (
     <div className="p-3 border rounded">
         
-        <div style={{height:'248px', overflowY:'auto'}}>
+        <div style={{height:'248px', overflowY:'auto',}}>
         <table className='table'>
-            <thead>
-                <tr>
-                    <th style={{width:"50%", textAlign:'left', marginLeft: '10%'}}>
+            <thead style={{backgroundColor:'#eaf1d5'}}>
+                <tr > 
+                    <th style={{width:"50%", textAlign:'left', marginLeft: '10%',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="cboDetalleArticuloManufacturado" className="form-label">ArticuloManufacturado</label>
-                        <select id="cboDetalleArticuloManufacturado" className='form-select' value={selectedArticulo} onChange={e => handleChangeArticulo(e)}>
+                        <select style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }} id="cboDetalleArticuloManufacturado" className='form-select' value={selectedArticulo} onChange={e => handleChangeArticulo(e)}>
                                 
                             <option value={0}>Seleccionar artículo</option>
 
@@ -94,29 +94,29 @@ function PromocionCargarDetalles({ detallesPrevios, handleChange }: DetallesProm
                         </select>
                     </th>
 
-                    <th style={{width:"10%", textAlign:'left'}}>
-                        <label htmlFor="txtCantidad" className="form-label">Cantidad</label>
-                        <input type="text" id="txtCantidad" className="form-control" pattern="[0-9]+" placeholder="Ingrese la cantidad del artículo" value={cantidad ? cantidad : ''} onChange={e => setCantidad(Number(e.target.value))} />
+                    <th style={{width:"10%", textAlign:'left',backgroundColor:'#eaf1d5'}}>
+                        <label  htmlFor="txtCantidad" className="form-label">Cantidad</label>
+                        <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }} type="text" id="txtCantidad" className="form-control" pattern="[0-9]+" placeholder="Ingrese la cantidad del artículo" value={cantidad ? cantidad : ''} onChange={e => setCantidad(Number(e.target.value))} />
                     </th>
 
-                    <th style={{width:"20%", textAlign:'center'}}>
+                    <th style={{width:"20%", textAlign:'center',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="txtUnidadMedida" className="form-label">Medida</label>
-                        <input type="text" id="txtUnidadMedida" className="form-control" value={unidadMedida} disabled />
+                        <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }} type="text" id="txtUnidadMedida" className="form-control" value={unidadMedida} disabled />
                     </th>
 
-                    <th style={{width:"25%", textAlign:'center'}}>
+                    <th style={{width:"25%", textAlign:'center',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="btnAgregar" className="form-label">Acciones</label>
-                        <a className="btn btn-success mb-0 form-control" id="btnAgregar"  style={{ marginBottom:10 }} onClick={agregarArticulo}>Agregar</a>
+                        <a className="btn  mb-1 form-control" id="btnAgregar"  style={{textAlign: "center", backgroundColor: "#a6c732" ,marginBottom:10,color:'white', padding: '10px' }} onClick={agregarArticulo}>Agregar</a>
                     </th>
                 </tr>
             </thead>
             <tbody>
             {detalles.map((detalle, index) => (
-                <tr key={index}>
-                    <td style={{width:"60%"}}>{detalle.articulo.denominacion}</td>
-                    <td style={{width:"5%", textAlign:'center'}}>{detalle.cantidad}</td>
-                    <td style={{width:"10%", textAlign:'center'}}>{detalle.articulo.unidadMedida.denominacion}</td>
-                    <td style={{width:"25%", textAlign:'center'}}><a className="btn btn-danger mb-0" style={{ marginBottom:10 }} onClick={() => deleteDetalle(index)}>Eliminar</a></td>
+                <tr  key={index}>
+                    <td style={{width:"60%",backgroundColor:'#eaf1d5'}}>{detalle.articulo.denominacion}</td>
+                    <td style={{width:"5%", textAlign:'center',backgroundColor:'#eaf1d5'}}>{detalle.cantidad}</td>
+                    <td style={{width:"10%", textAlign:'center',backgroundColor:'#eaf1d5'}}>{detalle.articulo.unidadMedida.denominacion}</td>
+                    <td style={{width:"25%", textAlign:'center',backgroundColor:'#eaf1d5'}}><a className="btn btn-danger mb-0"  style={{textAlign: "center", backgroundColor: "#dd5555" ,marginBottom:10,color:'white', padding: '10px'}} onClick={() => deleteDetalle(index)}>Eliminar</a></td>
                 </tr>
             ))}
             </tbody>

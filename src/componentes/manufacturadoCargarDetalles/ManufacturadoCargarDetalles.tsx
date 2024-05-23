@@ -72,15 +72,15 @@ function ManufacturadoCargarDetalles({ detallesPrevios, handleChange }: Detalles
     return (
     <div className="p-3 border rounded">
         
-        <div style={{height:'248px', overflowY:'auto'}}>
-        <table className='table'>
-            <thead>
-                <tr>
-                    <th style={{width:"50%", textAlign:'left', marginLeft: '10%'}}>
+        <div style={{height:'248px', overflowY:'auto',}}>
+        <table className='table' >
+            <thead >
+                <tr >
+                    <th style={{width:"50%", textAlign:'left', marginLeft: '10%',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="cboDetalleInsumo" className="form-label">Insumo</label>
-                        <select id="cboDetalleInsumo" className='form-select' value={selectedInsumo} onChange={e => handleChangeInsumo(e)}>
+                        <select style={{border: '2px solid black', padding: '10px',backgroundColor:'#e0ebc2' }} id="cboDetalleInsumo" className='form-select'  value={selectedInsumo} onChange={e => handleChangeInsumo(e)}>
                                 
-                            <option value={0}>Seleccionar insumo</option>
+                            <option  value={0}>Seleccionar insumo</option>
 
                             {insumos?.map((insumo:ArticuloInsumo) => 
                                 <option key={insumo.id} value={insumo.id}>{insumo.denominacion}</option>
@@ -89,29 +89,29 @@ function ManufacturadoCargarDetalles({ detallesPrevios, handleChange }: Detalles
                         </select>
                     </th>
 
-                    <th style={{width:"10%", textAlign:'left'}}>
+                    <th style={{width:"10%", textAlign:'left',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="txtCantidad" className="form-label">Cantidad</label>
-                        <input type="text" id="txtCantidad" className="form-control" pattern="[0-9]+" placeholder="Ingrese la cantidad del insumo" value={cantidad ? cantidad : ''} onChange={e => setCantidad(Number(e.target.value))} />
+                        <input style={{border: '2px solid black', padding: '10px',backgroundColor:'#e0ebc2' }} type="text" id="txtCantidad" className="form-control" pattern="[0-9]+" placeholder="Ingrese la cantidad del insumo" value={cantidad ? cantidad : ''} onChange={e => setCantidad(Number(e.target.value))} />
                     </th>
 
-                    <th style={{width:"20%", textAlign:'center'}}>
+                    <th style={{width:"20%", textAlign:'center',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="txtUnidadMedida" className="form-label">Medida</label>
-                        <input type="text" id="txtUnidadMedida" className="form-control" value={unidadMedida} disabled />
+                        <input style={{border: '2px solid black', padding: '10px',backgroundColor:'#e0ebc2' }} type="text" id="txtUnidadMedida" className="form-control" value={unidadMedida} disabled />
                     </th>
 
-                    <th style={{width:"25%", textAlign:'center'}}>
+                    <th style={{width:"25%", textAlign:'center',backgroundColor:'#eaf1d5'}}>
                         <label htmlFor="btnAgregar" className="form-label">Acciones</label>
-                        <a  className="btn btn-success mb-0 form-control" id="btnAgregar"   style={{ textAlign: "center", backgroundColor: "#a6c732" ,marginBottom:10 }} onClick={agregarInsumo}>Agregar</a>
+                        <a  className="btn  mb-1 form-control" id="btnAgregar" style={{ textAlign: "center", backgroundColor: "#a6c732" ,marginBottom:10,color:'white', padding: '10px' }} onClick={agregarInsumo}>Agregar</a>
                     </th>
                 </tr>
             </thead>
             <tbody>
             {detalles.map((detalle, index) => (
                 <tr key={index}>
-                    <td style={{width:"60%"}}>{detalle.articuloInsumo.denominacion}</td>
-                    <td style={{width:"5%", textAlign:'center'}}>{detalle.cantidad}</td>
-                    <td style={{width:"10%", textAlign:'center'}}>{detalle.articuloInsumo.unidadMedida.denominacion}</td>
-                    <td style={{width:"25%", textAlign:'center'}}><a className="btn btn-danger mb-0" style={{ marginBottom:10 }} onClick={() => deleteDetalle(index)}>Eliminar</a></td>
+                    <td style={{width:"60%",backgroundColor:'#eaf1d5'}}>{detalle.articuloInsumo.denominacion}</td>
+                    <td style={{width:"5%", textAlign:'center',backgroundColor:'#eaf1d5'}}>{detalle.cantidad}</td>
+                    <td style={{width:"10%", textAlign:'center',backgroundColor:'#eaf1d5'}}>{detalle.articuloInsumo.unidadMedida.denominacion}</td>
+                    <td style={{width:"25%", textAlign:'center',backgroundColor:'#eaf1d5'}}><a className="btn btn-danger mb-0" style={{ marginBottom:10,color:'white' }} onClick={() => deleteDetalle(index)}>Eliminar</a></td>
                 </tr>
             ))}
             </tbody>

@@ -60,15 +60,16 @@ const UploadImage: React.FC<UploadImageProps> = ({ onImageUpload }) => {
 
   return (
     <div>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2vh", padding: ".4rem" }}>
-        <TextField
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2vh", padding: ".5rem" }}>
+        <TextField 
           id="outlined-basic"
           variant="outlined"
           type="file"
           onChange={handleFileChange}
           inputProps={{ multiple: true }}
+          style={{backgroundColor:'#e2e9d0'}}
         />
-        <Button variant="contained" onClick={uploadFiles}>
+        <Button variant="contained" onClick={uploadFiles}style={{ backgroundColor:'#a6c732'}} >
           Subir Imágenes
         </Button>
       </div>

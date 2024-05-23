@@ -10,6 +10,7 @@ import ModalGenerico from "../modalGenerico/ModalGenerico";
 import GrillaGenericaTable from "./GrillaGenericaTable";
 import { useDomicilios } from "../../hooks/useDomicilios";
 import { Box, Typography, Button, Container } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import { Add } from "@mui/icons-material";
 type ListArgs<T extends Base> = {
   entidadPrevia: T,
@@ -54,13 +55,14 @@ function GrillaGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServici
 
   return (
     <>
+     
       <ModalGenerico titulo={(entidadBase as any).constructor.name} tituloModal={(entidadBase as any).constructor.nombre} ref={modalRef}>
         <FormularioGenerico data={entidad} onSubmit={save} listaSelects={listaSelects} />
       </ModalGenerico>
 
       {modalPedidos}
       {modalDomicilios}
-
+    
       <div style={{ height: '89vh', display: 'flex', flexDirection: 'column' }}>
         {Object.keys(entidad).includes('categoria') && (
           <div className="row mb-3 ms-auto" style={{ width: '25%' }}>
@@ -108,6 +110,7 @@ function GrillaGenerica<T extends Base>({ entidadPrevia, entidadBase, apiServici
           </Button>
         )}
       </div>
+      
     </>
   );
 }

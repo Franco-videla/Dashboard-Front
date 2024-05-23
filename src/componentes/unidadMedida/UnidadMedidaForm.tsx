@@ -73,7 +73,7 @@ function UnidadMedidaForm() {
     return (
         <>
         <div className="row">
-        <div className="col-sm">
+        <div className="col-sm" >
 
             <div className="ms-3 d-flex flex-row">
                 <input type="text" className="form-control" placeholder="Unidad de medida" value={txtDenominacionNueva} onChange={(e) => setTxtDenominacionNueva(String(e.target.value))}></input>
@@ -87,12 +87,12 @@ function UnidadMedidaForm() {
                 </button>
             </div>
 
-            <div className="accordion accordion-flush" id="accordionFlush0">
+            <div className="accordion accordion-flush" id="accordionFlush0" >
                 {unidadesMedida.map(unidadMedida => { return (
                     <div key={unidadMedida.id} className="accordion-item">
                         <h2 className="accordion-header d-flex flex-row" id={"flush-heading"+unidadMedida.id}>
                         
-                        <div className="accordion-button accordion-no-arrow collapsed"> {unidadMedida.denominacion} </div>
+                        <div className="accordion-button accordion-no-arrow collapsed" > {unidadMedida.denominacion} </div>
                         <button className="btn mx-2 p-0" type="button" onClick={() => eliminarUnidadMedida(unidadMedida.id)} > <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FF0000" className="bi bi-plus-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>

@@ -60,7 +60,7 @@ function DomicilioForm({domicilioPrevio, errors={}, handleChangeDomicilio}:Domic
         <div className="mb-3 row">
             <div className="col-9">
                 <label htmlFor="calle" className="form-label">Calle</label>
-                <input
+                <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                     type='text'
                     id='calle'
                     className='form-control'
@@ -72,7 +72,7 @@ function DomicilioForm({domicilioPrevio, errors={}, handleChangeDomicilio}:Domic
             </div>
             <div className="col-3">
                 <label htmlFor="numero" className="form-label">Número</label>
-                <input
+                <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                     type='number'
                     min={0}
                     id='numero'
@@ -87,7 +87,7 @@ function DomicilioForm({domicilioPrevio, errors={}, handleChangeDomicilio}:Domic
         <div className="mb-3 row">
             <div className="col">
                 <label htmlFor="pais" className="form-label">País</label>
-                <input
+                <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                     type='text'
                     id='pais'
                     className='form-control'
@@ -99,7 +99,7 @@ function DomicilioForm({domicilioPrevio, errors={}, handleChangeDomicilio}:Domic
             </div>
             <div className="col">
                 <label htmlFor="provincia" className="form-label">Provincia</label>
-                <input
+                <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                     type='text'
                     min={0}
                     id='provincia'
@@ -114,7 +114,7 @@ function DomicilioForm({domicilioPrevio, errors={}, handleChangeDomicilio}:Domic
         <div className="mb-3 row">
             <div className="col-9">
                 <label htmlFor="localidad" className="form-label">Localidad</label>
-                <input
+                <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                     type='text'
                     id='localidad'
                     className='form-control'
@@ -124,9 +124,9 @@ function DomicilioForm({domicilioPrevio, errors={}, handleChangeDomicilio}:Domic
                     />
             {errors['localidad'] && <div className='ms-1 mt-1 text-danger'>{errors['localidad']}</div>}
             </div>
-            <div className="col-3">
+            <div className="col-3" >
                 <label htmlFor="cp" className="form-label">Código postal</label>
-                <input
+                <input style={{ backgroundColor: '#e0ebc2', border: '2px solid black', padding: '10px' }}
                     type='number'
                     min={0}
                     id='cp'

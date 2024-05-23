@@ -138,7 +138,7 @@ function CargarImagenes({imagenesPrevias, handleChange}:ImagenesArgs) {
                 </div>
             ))}
             </Slider>
-            <label className="col-3" htmlFor="imageInput">
+            <label className="col-3" htmlFor="imageInput" >
                 <div
                     style={{
                     width: '100px',
@@ -148,6 +148,7 @@ function CargarImagenes({imagenesPrevias, handleChange}:ImagenesArgs) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     cursor: 'pointer',
+                    
                     }}
                     id='spinWithImage'>
                     {cargaEnProgreso ? (
@@ -167,7 +168,7 @@ function CargarImagenes({imagenesPrevias, handleChange}:ImagenesArgs) {
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
-            style={{ display: 'none' }}
+            style={{ display: 'none'}}
             id="imageInput"
             />
             </div>

@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
 
     return (
         <div>
-            <CSidebar className="border-end d-flex flex-column" style={{ height: '200vh', backgroundColor: '#e2e9d0' }}>
+            <CSidebar className="border-end d-flex flex-column" style={{ height: '104vh', backgroundColor: '#e2e9d0' }}>
                 <CSidebarNav>
                     <CNavTitle>
                         Menu

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Base from "../../entidades/Base";
 import FormularioGenerico from "../formularioGenerico/FormularioGenerico";
 import BackendClient from "../../servicios/BackendClient";

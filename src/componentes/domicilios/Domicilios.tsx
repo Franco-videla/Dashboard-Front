@@ -4,6 +4,8 @@ import Domicilio from '../../entidades/Domicilio';
 import MostrarDomicilio from "./MostrarDomicilio";
 import ModalGenerico from "../modalGenerico/ModalGenerico";
 import DomicilioForm from "./DomicilioForm";
+import { Button } from "@mui/material";
+import { Add } from "@mui/icons-material";
 
 type DomiciliosArgs = {
     domiciliosPrevios: Domicilio[],
@@ -84,7 +86,23 @@ function Domicilios({domiciliosPrevios, editar = false, handleChange}:Domicilios
     
     {editar &&
         <div className="row mx-1 mt-3">
-            <button type='button' className="btn btn-sm btn-secondary" onClick={() => handleOpenModal(new Domicilio)}>Nuevo</button>
+           
+
+            <Button
+            onClick={() => handleOpenModal(new Domicilio)}
+            sx={{
+              bgcolor: "#a6c732",
+              "&:hover": {
+                bgcolor: "#a0b750",
+              },
+              my: 3,
+              mx: 1
+            }}
+            variant="contained"
+            startIcon={<Add />}
+          >
+            Nuevo
+          </Button>
         </div>
     }
 
