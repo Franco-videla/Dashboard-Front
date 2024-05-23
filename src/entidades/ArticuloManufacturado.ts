@@ -11,12 +11,12 @@ export default class ArticuloManufacturado extends Base {
     precioVenta:number = 0;
     tiempoEstimadoMinutos:number = 0;
     unidadMedida:UnidadMedida = new UnidadMedida();
-    imagenes:Imagen[] = [];
     articuloManufacturadoDetalles:ArticuloManufacturadoDetalle[] = [];
     preparacion:string ="";
     stock:number = 0;
     precioCosto:number = 0;
+    imagenes:Imagen[] = [];
 
     static nombre:string = "Artículo Manufacturado";
-    static labels:string[] = ["Id", "Denominación", "Categoría", "Descripción", "Precio de venta", "Tiempo estimado", "Unidad de medida", "Imágenes", "Cargar detalles", "Preparación", "Stock actual", "Precio de costo"];
+    static labels:string[] = ["Id", "Denominación", "Categoría", "Descripción", "Precio de venta", "Tiempo estimado", "Unidad de medida", "Cargar detalles", "Preparación", "Stock actual", "Precio de costo", "Imágenes"];
 }

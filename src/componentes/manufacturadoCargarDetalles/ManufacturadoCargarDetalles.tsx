@@ -26,17 +26,22 @@ function ManufacturadoCargarDetalles({ detallesPrevios, handleChange }: Detalles
 
     const agregarInsumo = () => {
         if (selectedInsumo === "0") {
+            console.log("No se ha seleccionado un insumo.");
             return;
         }
         if (cantidad === 0) {
+            console.log("La cantidad no puede ser cero.");
             return;
         }
 
         const insumo:ArticuloInsumo = insumos.filter((insumo) => {return insumo.id === Number(selectedInsumo)})[0];
+        console.log("Insumo seleccionado:", insumo);
 
         const detalle:ArticuloManufacturadoDetalle = new ArticuloManufacturadoDetalle;
         detalle.articuloInsumo = insumo;
         detalle.cantidad = cantidad;
+
+        console.log("Nuevo detalle a agregar:", detalle);
         setDetalles( [...detalles.filter(detalle => {return detalle.articuloInsumo.id !== insumo.id}), detalle] );
 
         setCantidad(0);
@@ -44,6 +49,7 @@ function ManufacturadoCargarDetalles({ detallesPrevios, handleChange }: Detalles
     }
 
     const deleteDetalle = (id:number) => {
+        console.log("Eliminando detalle con índice:", id);
         setDetalles([...detalles.filter((_detalle, index) => index !== id)]);
     }
 
@@ -51,7 +57,9 @@ function ManufacturadoCargarDetalles({ detallesPrevios, handleChange }: Detalles
         const idInsumo = e.target.value;
         let unidad = "";
         if (idInsumo !== "0") {
-            unidad = insumos.filter((insumo) => {return insumo.id === Number(e.target.value)})[0].unidadMedida.denominacion;
+            const insumoSeleccionado = insumos.filter((insumo) => {return insumo.id === Number(e.target.value)})[0];
+            unidad = insumoSeleccionado.unidadMedida.denominacion;
+            console.log("Unidad de medida seleccionada:", unidad);
         }
         setUnidadMedida(unidad);
         setSelectedInsumo(e.target.value);
@@ -68,6 +76,8 @@ function ManufacturadoCargarDetalles({ detallesPrevios, handleChange }: Detalles
     useEffect(() => {
         handleChange('articuloManufacturadoDetalles' as keyof object, detalles);
     }, [detalles]);
+
+    console.log("Detalles actuales:", detalles);
 
     return (
     <div className="p-3 border rounded">
