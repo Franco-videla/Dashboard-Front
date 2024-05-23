@@ -18,18 +18,30 @@ export default abstract class BackendClient<T> extends AbstractBackendClient<T> 
   }
 
   async post(data: T): Promise<T> {
-    const response = await fetch(`${this.baseUrl}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-  
-    });
-    console.log(JSON.stringify(data));
-    const newData = await response.json();
-    return newData as T;
-  }
+    try {
+        const response = await fetch(`${this.baseUrl}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        console.log("Sending data:", JSON.stringify(data));
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            throw new Error(`Error al crear la entidad: ${errorMessage}`);
+        }
+
+        const newData = await response.json();
+        return newData as T;
+    } catch (error) {
+        console.error("Error en la solicitud POST:", error);
+        throw error;
+    }
+}
+
 
   async put(id: number, data: T): Promise<T> {
     const response = await fetch(`${this.baseUrl}/${id}`, {
