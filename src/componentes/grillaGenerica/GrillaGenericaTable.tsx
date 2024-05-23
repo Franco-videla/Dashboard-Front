@@ -1,7 +1,7 @@
-import { DriveFileMove } from "@mui/icons-material";
+
 import Base from "../../entidades/Base";
 import Domicilio from "../../entidades/Domicilio";
-import { Button, dividerClasses } from "@mui/material";
+import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 export type GrillaGenericaTableProps<T> = {
   entidades: T[];

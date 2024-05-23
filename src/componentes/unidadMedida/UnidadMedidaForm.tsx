@@ -76,7 +76,7 @@ function UnidadMedidaForm() {
         <div className="col-sm" >
 
             <div className="ms-3 d-flex flex-row">
-                <input type="text" className="form-control" placeholder="Unidad de medida" value={txtDenominacionNueva} onChange={(e) => setTxtDenominacionNueva(String(e.target.value))}></input>
+                <input  type="text" className="form-control" placeholder="Unidad de medida" value={txtDenominacionNueva} onChange={(e) => setTxtDenominacionNueva(String(e.target.value))}></input>
                 <button className="btn mx-2 p-0" type="button" onClick={save}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00AA00" className="bi bi-plus-circle" viewBox="0 0 16 16">

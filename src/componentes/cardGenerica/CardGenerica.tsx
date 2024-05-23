@@ -7,7 +7,7 @@ import ModalGenerico from "../modalGenerico/ModalGenerico";
 import CardGenericaCard from "./CardGenericaCard";
 import useGrillaHandlers from "../grillaGenerica/useGrillaHandler";
 import { Add } from "@mui/icons-material";
-import { Box, Button } from "@mui/material";
+import {  Button } from "@mui/material";
 
 type ListArgs<T extends Base> = {
   entidadPrevia: T,

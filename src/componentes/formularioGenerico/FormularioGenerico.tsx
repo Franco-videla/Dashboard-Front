@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import InputRenderer from './InputRenderer';
 import useFormHandlers from './useFormHandlers';
 import UploadImage from '../common/UploadImage';

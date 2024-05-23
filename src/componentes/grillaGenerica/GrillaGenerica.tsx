@@ -9,8 +9,8 @@ import useGrillaHandlers from "./useGrillaHandler";
 import ModalGenerico from "../modalGenerico/ModalGenerico";
 import GrillaGenericaTable from "./GrillaGenericaTable";
 import { useDomicilios } from "../../hooks/useDomicilios";
-import { Box, Typography, Button, Container } from "@mui/material";
-import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
+
 import { Add } from "@mui/icons-material";
 type ListArgs<T extends Base> = {
   entidadPrevia: T,
